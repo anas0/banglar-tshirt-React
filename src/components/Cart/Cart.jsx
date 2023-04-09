@@ -1,6 +1,11 @@
 import React from 'react';
 
 const Cart = ({cart, handleRemoveFromCart}) => {
+    let message;
+    if(cart.length ===0){
+        message = <p>Please add some products.</p>
+    }
+    
     return (
         <div>
             <h2>Order Summary: {cart.length}</h2>
@@ -12,6 +17,8 @@ const Cart = ({cart, handleRemoveFromCart}) => {
                         <button onClick={() => handleRemoveFromCart(tshirt._id)}>X</button>
                 </p>)
             }
+
+            {message}
         </div>
     );
 };
